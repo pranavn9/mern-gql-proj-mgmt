@@ -1,14 +1,14 @@
 const express = require("express");
-// const colors = require("colors");
+const colors = require("colors");
 require("dotenv").config();
 const port = process.env.PORT || 5000;
 const { graphqlHTTP } = require("express-graphql");
 const schema = require("./schema/schema");
-// const connectDB = require("./config/db");
+const connectDB = require("./config/db");
 const app = express();
 
 //Connect to MongoDB
-// connectDB();
+connectDB();
 
 //Open express server on specified port
 app.listen(port, console.log(`Server running on port: ${port}`));
