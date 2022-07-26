@@ -1,18 +1,13 @@
 import { useQuery } from "@apollo/client";
 import  ClientRow  from "./ClientRow";
 import { GET_CLIENTS } from "../queries/clientQueries";
+import Spinner from "./Spinner";
 
 
 export default function Clients() {
     const { loading, error, data } = useQuery(GET_CLIENTS);
 
-    if(loading) return (
-        <div className='d-flex justify-content-center'>
-            <div className='spinner-border' role='status'>
-                <span className='sr-only'></span>
-            </div>
-        </div>        
-    )
+    if(loading) return <Spinner/>
     if(error) return <p>Something went wrong!</p>
 
     return (
